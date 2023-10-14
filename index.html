@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animación con Botón</title>
+  <style>
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .connection-line {
+      position: absolute;
+      border-left: 2px solid #00ff77;
+      height: 50px;
+      margin-left: -1px; /* Para alinear con el borde izquierdo del .loading-text */
+    }
+
+    .loading-container {
+      position: relative;
+      width: 200px;
+      height: 100px;
+      background-color: #000;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      margin: 0 auto; /* Centrar horizontalmente */
+    }
+
+    .loading-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #00ff77;
+    }
+
+    .loading-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #00ff77;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00ff77;
+    }
+
+    @keyframes loading {
+      0% {
+        width: 0;
+      }
+      25% {
+        width: 50%;
+      }
+      50% {
+        width: 100%;
+      }
+      75% {
+        width: 50%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+
+    .loading-container.start-animation .loading-bar {
+      animation: loading 5s linear infinite;
+    }
+
+    .loading-container.start-animation .loading-text {
+      animation: loading 5s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button onclick="startAnimation()">Juego de la pelota</button>
+    <button onclick="startAnimation()"><a href="google">pint</a></button>
+    
+
+    
+    
+    
+  </div>
+
+  <div class="loading-container" id="loadingContainer">
+    <div class="loading-bar"></div>
+    <div class="loading-text">LOADING</div>
+  </div>
+
+  <script>
+    function startAnimation() {
+      const loadingContainer = document.getElementById('loadingContainer');
+      loadingContainer.style.display = 'block';
+      loadingContainer.classList.add('start-animation');
+    }
+  </script>
+</body>
+</html>
